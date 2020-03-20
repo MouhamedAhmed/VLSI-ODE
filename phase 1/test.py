@@ -12,6 +12,8 @@ def twos_complement(string_num,string_f):
         if string[i] == '1':
             st = i+1
             break
+    if(len(string_f)==0):
+        s = "."+s
     for i in range(st,len(string)):
         
         if string[i] == '1':
@@ -20,7 +22,7 @@ def twos_complement(string_num,string_f):
             s += '1' 
         if(i == len(string_f)-1):
             s+='.'
-    
+
     return s[::-1]
 
 
@@ -95,12 +97,16 @@ def test(A,B,op):
     scale_B = bin_to_float('0'+B[0:4]+'.')
     A_a = A_a[::-1]
     B_b = B_b[::-1]
-    inputA = A_a[:scale_A] + '.' + A_a[scale_A:]+'0'
-    inputB = B_b[:scale_B] + '.' + B_b[scale_B:]+'0'
+
+    inputA = '0'+A_a[:scale_A] + '.' + A_a[scale_A:]
+    inputB = '0'+B_b[:scale_B] + '.' + B_b[scale_B:]
+    
     inputA = inputA[::-1]
     inputB = inputB[::-1]
+
     inputA_f = bin_to_float(inputA)
     inputB_f = bin_to_float(inputB)
+
 
     if op == '+':
         output_f = inputA_f+inputB_f
@@ -115,7 +121,7 @@ def test(A,B,op):
 
 
     output_bin = float_to_bin(output_f,"s")
-    
+   
     num,fraction = output_bin.split(".")
 
     #extend fraction 
@@ -142,5 +148,5 @@ def test(A,B,op):
     
     return output
 
-print(test("1100010111010010","1001110110110000","*"))
+print(test("0000111111111111","0000111111111111","+"))
 
