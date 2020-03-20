@@ -95,8 +95,8 @@ def test(A,B,op):
     scale_B = bin_to_float('0'+B[0:4]+'.')
     A_a = A_a[::-1]
     B_b = B_b[::-1]
-    inputA = A_a[:scale_A] + '.' + A_a[scale_A:]
-    inputB = B_b[:scale_B] + '.' + B_b[scale_B:]
+    inputA = A_a[:scale_A] + '.' + A_a[scale_A:]+'0'
+    inputB = B_b[:scale_B] + '.' + B_b[scale_B:]+'0'
     inputA = inputA[::-1]
     inputB = inputB[::-1]
     inputA_f = bin_to_float(inputA)
