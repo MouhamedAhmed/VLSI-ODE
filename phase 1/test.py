@@ -32,9 +32,12 @@ def float_to_bin(x,typ):
     if x<0:
         x *= -1
         sign = -1
-    num,fraction = str(float(x)).split(".")
+#     num,fraction = str(float(x)).split(".")
+    num = int(x)
     num = int(num)
     fraction = x-num
+   
+
     # convert num to binary
     num_bin = ''
     while (num != 0):
@@ -106,7 +109,7 @@ def test(A,B,op):
 
     inputA_f = bin_to_float(inputA)
     inputB_f = bin_to_float(inputB)
-
+    
 
     if op == '+':
         output_f = inputA_f+inputB_f
@@ -119,9 +122,7 @@ def test(A,B,op):
         scale_out = scale_A+scale_B
         size_of_num = 24 - scale_out
 
-
     output_bin = float_to_bin(output_f,"s")
-   
     num,fraction = output_bin.split(".")
 
     #extend fraction 
@@ -148,5 +149,5 @@ def test(A,B,op):
     
     return output
 
-print(test("0000111111111111","0000111111111111","+"))
+print(test("1000111111111111","1000111111111111","*"))
 
