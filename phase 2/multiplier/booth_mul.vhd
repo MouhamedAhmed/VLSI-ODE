@@ -114,8 +114,7 @@ BEGIN
             elsif ll = "10" then
                 ll <= "00";
             end if;
-        end if;  
-        if rising_edge(clk) then
+        else
             if rising_edge(done_sig_delayed(0)) then
                 ll <= "11"; 
             end if;
