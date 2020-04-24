@@ -27,8 +27,8 @@ process (A0, A1, B0, B1, c0, c1, s)
 begin
 	--if s = '0' then sumOut <= sum0; c <= c0;
 	--else sumOut <= sum1; c <= c1;
-	if s = '0' then Aout <= A0; Bout <= B0; c <= c0;
-	else Aout <= A1; Bout <= B1; c <= c1;
+	if s = '0' then Aout <= A0; Bout <= A1; c <= c0;
+	else Aout <= A0; Bout <= B1; c <= c1;
 end if;
 end process;
 end behavioral;
