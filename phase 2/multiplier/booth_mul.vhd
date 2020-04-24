@@ -114,10 +114,8 @@ BEGIN
             elsif ll = "10" then
                 ll <= "00";
             end if;
-        else
-            if rising_edge(done_sig_delayed(0)) then
+        elsif rising_edge(done_sig_delayed(0)) then
                 ll <= "11"; 
-            end if;
 
         end if;
     end process p;
