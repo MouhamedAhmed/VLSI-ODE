@@ -105,7 +105,9 @@ BEGIN
 
 
     p : process (clk,clk_sig)
+    variable en_ll : std_logic;
     begin
+        en_ll := '0';
         if rising_edge(clk_sig) then
             if done_sig(0) = '1' then
                 ll <= "11";
@@ -114,10 +116,15 @@ BEGIN
             elsif ll = "10" then
                 ll <= "00";
             end if;
-        elsif rising_edge(done_sig_delayed(0)) then
-                ll <= "11"; 
-
+        end if;  
+        if rising_edge(done_sig_delayed(0)) then
+            en_ll := '1';
         end if;
+        if rising_edge(clk) and en_ll = '1' then
+            ll <= "11"; 
+        end if;
+
+        
     end process p;
 
 END booth_mul_arch;
